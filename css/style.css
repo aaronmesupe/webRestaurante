@@ -1,0 +1,50 @@
+html{
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+body{
+	background-image: url(http://www.javimartinez8.com/wp/imagenes/fondo_ppal.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color: white;
+}
+
+a {
+	color: white;
+}
+
+a:hover {
+	color: #F7D358;
+}
+
+.informacion{
+	margin-top: 70px;
+}
+
+.img-restaurante{
+	margin-left: 50px;
+	margin-top: 15px;
+}
+
+.img-json{
+	width: 150px;
+	height: 150px;
+}
+
+.nav-header{
+	border-bottom: 1px solid white;
+}
+
+.nav-footer{
+	margin-top: 10px;
+	border-top: 1px solid white;
+}
+
+.pedido, .reserva{
+	background-color: white;
+	color: black;
+	border-radius: 2px;
+}
