@@ -96,7 +96,7 @@ $(document).ready(function() {
 			pruebaTotal = pruebaTotal + (cantidad * precio);
 		}
 
-		$('#total').text(Math.abs(pruebaTotal));
+		$('#total').text(Math.abs(pruebaTotal.toFixed(2)));
 
 	} //fin PRECIOTOTAL
 
