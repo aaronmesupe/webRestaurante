@@ -11,7 +11,6 @@ $(document).ready(function() {
 	var total = 0;
 
 	//Creamos la carta
-
 	function carta(response){
 		var plato;
 		var categoria = response;
@@ -42,7 +41,6 @@ $(document).ready(function() {
 
 
 	//AÑADIR
-
 	function anadir(){
 		count = count + 1;
 
@@ -56,13 +54,11 @@ $(document).ready(function() {
 			" - "+ precioPlato +" € x <input type='number' class='cantidad' name='cantidad' min='1' value='1'>"+
 			" <img id='plato"+ count +"' class='supr' src='./images/supr.png'> </li>");
 		
+		//calculamos el PRECIO
+		precioTotal();
+
 		//llamamos a inputChange cuando cambie el valor del input
-		$('.cantidad').change(inputChange);
-
-		//llamamos a calcular total
-		total = totalFunction(sum, cantidad);
-
-		$('#total').text(Math.abs(total.toFixed(2)));
+		$('.cantidad').change(precioTotal);
 
 		//llamamos a la funcion eliminar
 		$('#plato'+count).click(eliminar);
@@ -75,43 +71,33 @@ $(document).ready(function() {
 	} //fin AÑADIR
 
 	//ELIMINAR
-
 	function eliminar(){
 		cantidad = parseFloat($(this).parent().children('input').val());
-
+		
 		precio = parseFloat($(this).parent().attr("value"));
-
+		
 		$(this).parent().remove();
+		
+		//calculamos el PRECIO
+		precioTotal();
 
-		total = total - (precio * cantidad);
-
-		$('#total').text(Math.abs(total.toFixed(2)));
 	} //fin ELIMINAR
 
 
-	//TOTAL
-	function totalFunction(precio, cantidad){
-		total = total + (cantidad * precio) ;
-		return total;
-	} //fin TOTAL
+	//PRECIOTOTAL
+	function precioTotal(){
+		pruebaTotal = 0;
+		elementos = $('.platos').children('li');
 
-	//TOTAL
-	function totalChange(precio, cantidad){
-		total = total - ( (cantidad - 1 ) * precio) + (cantidad * precio);
-		return total;
-	} //fin TOTAL
+		for (var i = 0; i < elementos.length; i++){
+			cantidad = parseFloat($(elementos[i]).children('.cantidad').val());
+			precio = parseFloat($(elementos[i]).attr("value"));
 
+			pruebaTotal = pruebaTotal + (cantidad * precio);
+		}
 
-	function inputChange(){
-		cantidad = parseFloat($(this).val());
+		$('#total').text(Math.abs(pruebaTotal));
 
-		precio = parseFloat($(this).parent().attr('value'));
-
-		total = totalChange(precio, cantidad);
-
-		$('#total').text(Math.abs(total.toFixed(2)));
-	}
-
-
+	} //fin PRECIOTOTAL
 
 });
