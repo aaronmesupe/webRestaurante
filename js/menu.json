@@ -27,13 +27,13 @@
 			"imagen"		:	"https://i.ytimg.com/vi/fQwBQ3PzXrU/maxresdefault.jpg"
 		},
 		{
-			"nombre"		: 	"Merluza rellena de jamón al brandy",
+			"nombre"		: 	"Merluza rellena",
 			"descripcion"	:	"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio beatae, sunt aspernatur laudantium reiciendis sint est aut non, omnis debitis rem quas cumque. Vero eligendi voluptates similique tempora, tenetur aliquam.",
 			"precio"		:	6.00,
 			"imagen"		:	"https://media-cdn.tripadvisor.com/media/photo-s/05/74/ee/2a/merluza-rellena-de-jamon.jpg"
 		},
 		{
-			"nombre"		: 	"Bacalao a la plancha sobre tomate frito casero",
+			"nombre"		: 	"Bacalao a la plancha",
 			"descripcion"	:	"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio beatae, sunt aspernatur laudantium reiciendis sint est aut non, omnis debitis rem quas cumque. Vero eligendi voluptates similique tempora, tenetur aliquam.",
 			"precio"		:	8.00,
 			"imagen"		:	"https://2.bp.blogspot.com/-gD4No93czys/WM_PDFSE8bI/AAAAAAABXN0/AWSL6kK35HU878h7XR9iJnHMts40KB65gCEw/s1600/ob%2B%25282%2529.JPG"
@@ -61,7 +61,7 @@
 	],
 	"postres"	:	[
 		{
-			"nombre"		: 	"Secreto de chocolate con helado",
+			"nombre"		: 	"Secreto de chocolate",
 			"descripcion"	:	"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio beatae, sunt aspernatur laudantium reiciendis sint est aut non, omnis debitis rem quas cumque. Vero eligendi voluptates similique tempora, tenetur aliquam.",
 			"precio"		:	3.50,
 			"imagen"		:	"http://dialprix.es/blog/wp-content/uploads/12-4-pasteles-volcan-chocolate.png"
@@ -73,7 +73,7 @@
 			"imagen"		:	"http://webosfritos.es/wp-content/uploads/2008/04/WMG_9801_F.jpg"
 		},
 		{
-			"nombre"		: 	"Tarta de queso con frambuesas",
+			"nombre"		: 	"Tarta de queso",
 			"descripcion"	:	"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio beatae, sunt aspernatur laudantium reiciendis sint est aut non, omnis debitis rem quas cumque. Vero eligendi voluptates similique tempora, tenetur aliquam.",
 			"precio"		:	3.00,
 			"imagen"		:	"http://www.comandococina.com/wp-content/uploads/2015/09/023-tarta-queso-frambuesa-P3.jpg"

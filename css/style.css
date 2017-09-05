@@ -29,7 +29,7 @@ a:hover {
 	margin-top: 15px;
 }
 
-.img-json{
+.img{
 	width: 150px;
 	height: 150px;
 }
@@ -43,8 +43,46 @@ a:hover {
 	border-top: 1px solid white;
 }
 
-.pedido, .reserva{
+.anadir, .reserva{
 	background-color: white;
 	color: black;
 	border-radius: 2px;
+}
+
+h2{
+	margin-top: 17px;
+	text-transform: capitalize;
+}
+
+.cantidad{
+	width: 50px;
+	margin-right: 25px;
+}
+
+.mi-pedido{
+	text-align: center;
+	border-bottom: 1px solid white;
+}
+
+.pedido{
+	width: 375px;
+	height: 400px;
+	z-index: 3;
+	position: fixed;
+	right: 25px;
+	top: 100px;
+	border: 1px solid white;
+	border-radius: 2px;
+}
+
+.platos{
+	list-style: none;
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 250px;
+}
+
+.supr{
+	width: 15px;
+	height: 15px;
 }
