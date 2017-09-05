@@ -7,12 +7,13 @@ $(document).ready(function() {
 	   	success: carta
 	});
 
+	var count = 0;
+	var total = 0;
+
 	//Creamos la carta
 
 	function carta(response){
-		var count = 0;
 		var plato;
-		var total = 0;
 		var categoria = response;
 
 		categoria = Object.keys(categoria);
@@ -37,75 +38,79 @@ $(document).ready(function() {
 		//llamamos a la funcion añadir
 		$('.anadir').click(anadir);
 
-
-
-		//AÑADIR
-
-		function anadir(){
-			count = count + 1;
-
-			var cantidad = 1;
-			
-			var sum;
-			var nombrePlato = $(this).parent().children("h6").text();
-			var precioPlato = $(this).parent().children(".precio").text().split(":")[1].split("€")[0].trim();
-			sum = parseFloat(precioPlato);
-
-			sum = precioPlato * cantidad;
-
-			$('.platos').append("<li value='"+sum+"' data-nombre='"+nombrePlato+"'>"+ nombrePlato +
-				" - "+ precioPlato +" € x <input type='number' class='cantidad' name='cantidad' min='1' value='1'>"+
-				" <img id='plato"+ count +"' class='supr' src='./images/supr.png'> </li>");
-			
-			$('.cantidad').change(function(){
-				console.log( $(this).val() );
-			});
-			
-			//llamamos a calcular total
-			total = totalFuncion(total, sum);
-
-			$('#total').text(total.toFixed(2));
-
-			//llamamos a la funcion eliminar
-			$('#plato'+count).click(eliminar);
-
-			if ($('.platos').has('li')){
-				$('.pedir').removeAttr("disabled");
-			}
-
-		} //fin AÑADIR
-
-		//ELIMINAR
-
-		function eliminar(){
-
-			sum = parseFloat($(this).parent().attr("value"));
-			console.log(sum);
-
-			//sum = parseFloat($(this).parent().text().split("-")[1].split("€")[0].trim());
-			$(this).parent().remove();
-
-			total = total - sum;
-
-			$('#total').text(total.toFixed(2));
-		} //fin ELIMINAR
-
-
-		//TOTAL
-		function totalFuncion(total, sum){
-			return total + sum;
-		} //fin TOTAL
-
-
-		function inputChange(){
-			console.log( $('.cantidad').val() );
-		}
-
-
-
 	}//fin FUNCTION crear carta
 
 
+	//AÑADIR
+
+	function anadir(){
+		count = count + 1;
+
+		var cantidad = 1;
+		var sum;
+		var nombrePlato = $(this).parent().children("h6").text();
+		var precioPlato = $(this).parent().children(".precio").text().split(":")[1].split("€")[0].trim();
+		sum = parseFloat(precioPlato);
+
+		$('.platos').append("<li value='"+sum+"' data-nombre='"+nombrePlato+"'>"+ nombrePlato +
+			" - "+ precioPlato +" € x <input type='number' class='cantidad' name='cantidad' min='1' value='1'>"+
+			" <img id='plato"+ count +"' class='supr' src='./images/supr.png'> </li>");
+		
+		//llamamos a inputChange cuando cambie el valor del input
+		$('.cantidad').change(inputChange);
+
+		//llamamos a calcular total
+		total = totalFunction(sum, cantidad);
+
+		$('#total').text(Math.abs(total.toFixed(2)));
+
+		//llamamos a la funcion eliminar
+		$('#plato'+count).click(eliminar);
+
+		//Quito el atributo disabled del boton PEDIR
+		if ($('.platos').has('li')){
+			$('.pedir').removeAttr("disabled");
+		}
+
+	} //fin AÑADIR
+
+	//ELIMINAR
+
+	function eliminar(){
+		cantidad = parseFloat($(this).parent().children('input').val());
+
+		precio = parseFloat($(this).parent().attr("value"));
+
+		$(this).parent().remove();
+
+		total = total - (precio * cantidad);
+
+		$('#total').text(Math.abs(total.toFixed(2)));
+	} //fin ELIMINAR
+
+
+	//TOTAL
+	function totalFunction(precio, cantidad){
+		total = total + (cantidad * precio) ;
+		return total;
+	} //fin TOTAL
+
+	//TOTAL
+	function totalChange(precio, cantidad){
+		total = total - ( (cantidad - 1 ) * precio) + (cantidad * precio);
+		return total;
+	} //fin TOTAL
+
+
+	function inputChange(){
+		cantidad = parseFloat($(this).val());
+
+		precio = parseFloat($(this).parent().attr('value'));
+
+		total = totalChange(precio, cantidad);
+
+		$('#total').text(Math.abs(total.toFixed(2)));
+	}
 
 
 
